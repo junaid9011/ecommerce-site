@@ -1,0 +1,101 @@
+.nav{
+    position: sticky;
+    
+}
+.nav-container{
+display:grid;
+grid-template-columns: 1fr 3fr 1fr;
+height: 75px;
+
+}
+.input-box{
+    padding-left: 1rem;
+    font-weight: 500px;
+    outline: 2px solid transparent;
+    outline: offset 2px;
+    width:95%;
+    height:2.5rem;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px
+    
+}
+.search-btn{
+    background-color:white;
+    height: 2.5rem;
+    width: 2.5rem;
+    /* outline: 2px solid transparent;
+    outline: offset 2px; */
+    position:absolute;
+    /* border:1px solid gray; */
+    border-left: 1px solid rgb(190, 184, 184);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px
+
+
+    
+}
+
+.drop-down{
+    top:9.5%;
+    right: 50px;
+    width: 200px;
+    display: none;
+}
+.user:hover .drop-down{
+    display: block;
+    z-index: 100;
+}
+.drop-down-menu{
+    padding:10px 0;
+    font-size:x-large;
+}
+.user-cart{
+    display: flex;
+    justify-content:space-between;
+}
+
+@media only screen and (max-width:600px){
+    /* .nav-container{
+        display:grid;
+        grid-template-columns: .5fr 2.5fr 1fr;
+        } */
+        .input-box{
+            /* display:none;    */
+            padding-left: 1rem;
+            font-weight: 500px;
+            outline: 2px solid transparent;
+            outline: offset 2px;
+            width:95%;
+            margin-left: 5px;
+            height:2.5rem;
+            border-radius: 5px;
+            
+        }
+        .search-btn{
+            display: none;
+            background-color:white;
+            height: 2.5rem;
+            width: 2.5rem;
+            position:absolute;
+            border:1px solid gray;
+            border-radius: 50%;
+            margin-left: 3.5rem;
+            
+        }
+        .drop-down{
+    
+            top:14.2%;
+            right: 0px;
+            width: 200px;
+            display: none;
+        }
+        .user:hover .drop-down{
+            display: block;
+            z-index: 100;
+        }
+        .drop-down-menu{
+            padding:10px 0;
+            font-size: medium;
+        }
+
+}
