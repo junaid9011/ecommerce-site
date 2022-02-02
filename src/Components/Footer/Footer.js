@@ -37,10 +37,10 @@ const Footer = () => {
   	 		<div className="footer-col">
   	 			<h4>follow us</h4>
   	 			<div className="social-links">
-  	 				<Link to="#"><RiFacebookCircleFill/></Link>
-  	 				<Link to="#"><RiTwitterFill/></Link>
-  	 				<Link to="#"><RiInstagramFill/></Link>
-  	 				{/* <Link to="#"><i className="fab fa-linkedin-in"></i></Link> */}
+  	 				<Link to="#"><p className='text-center mt-1.5 ml-1.5 text-3xl' ><RiFacebookCircleFill className=' absulate'/></p></Link>
+					   <Link to="#"><p className='text-center mt-1.5 ml-1.5 text-3xl' ><RiInstagramFill className=' absulate'/></p></Link>
+					   <Link to="#"><p className='text-center mt-1.5 ml-1.5 text-3xl' ><RiTwitterFill className=' absulate'/></p></Link>
+					  
   	 			</div>
   	 		</div>
   	 	</div>
