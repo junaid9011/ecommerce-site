@@ -27,23 +27,10 @@ const ConfirmOrder = () => {
             totalPrice
         }
         // console.log(order)
-        // const confirmOrder=()=>{
-        //             dispatch(createOrder(order));
-        //             window.localStorage.removeItem('cartItems');
-        //         }
-        useEffect(()=>{
-            // if(error){
-                
-            //     dispatch(clearAllErrors(error));
-            // }
-            // else{
-                const confirmOrder=()=>{
+        const confirmOrder=()=>{
                     dispatch(createOrder(order));
                     window.localStorage.removeItem('cartItems');
                 }
-            // }
-            
-        })
         
         
     return (
