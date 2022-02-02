@@ -12,7 +12,7 @@ import Search from '../Layout/Search'
 export const Header = () => {
     const dispatch=useDispatch();
     const {user}=useSelector(state=>state?.user);
-    const name=user.name.split(' ')[0]
+    const name=user.user.name.split(' ')[0]
     const userLogout=()=>{
         dispatch(logOut());
     }
