@@ -12,7 +12,7 @@ import Search from '../Layout/Search'
 export const Header = () => {
     const dispatch=useDispatch();
     const {user}=useSelector(state=>state?.user);
-    const name=user?.user?.name.split(' ')[0]
+    const name=user.name.split(' ')[0]
     const userLogout=()=>{
         dispatch(logOut());
     }
@@ -42,7 +42,7 @@ export const Header = () => {
                         </div>}
                     </button>
                     
-                     <h1 className="text-white text-base">{(user?.user?.name)?{name}:"user"}</h1>
+                     <h1 className="text-white text-base">{(user?.user?.name)?name:"user"}</h1>
                     </div>
                     
                     <div className=" ml-2 md:mr-16">
