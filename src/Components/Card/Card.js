@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import bag from '../../images/bags/bag-1.png'
-import shoe from '../../images/categories/shoes.png'
-import watch from '../../images/categories/watch.png'
-import { getProductDetails } from '../../Redux/Actions/productAction';
+
 import './Card.css'
 export const Card = ({product}) => {
    

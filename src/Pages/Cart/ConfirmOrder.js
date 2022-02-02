@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { createOrder} from '../../Redux/Actions/orderAction';
+import { clearAllErrors, createOrder} from '../../Redux/Actions/orderAction';
 
 const ConfirmOrder = () => {
     const dispatch=useDispatch();
@@ -27,20 +27,23 @@ const ConfirmOrder = () => {
             totalPrice
         }
         // console.log(order)
-        const confirmOrder=()=>{
-                    dispatch(createOrder(order));
-                    window.localStorage.removeItem('cartItems');
-                }
+        // const confirmOrder=()=>{
+        //             dispatch(createOrder(order));
+        //             window.localStorage.removeItem('cartItems');
+        //         }
         useEffect(()=>{
             // if(error){
                 
             //     dispatch(clearAllErrors(error));
             // }
             // else{
-                confirmOrder();
+                const confirmOrder=()=>{
+                    dispatch(createOrder(order));
+                    window.localStorage.removeItem('cartItems');
+                }
             // }
             
-        },[dispatch,error])
+        })
         
         
     return (
@@ -66,7 +69,7 @@ const ConfirmOrder = () => {
                            </div>
    
                            <div className="col-5 col-lg-6">
-                               <a href="#">{item.name}</a>
+                               <Link to="#">{item.name}</Link>
                            </div>
    
    
@@ -97,7 +100,7 @@ const ConfirmOrder = () => {
                         <p>Total: <span className="order-summary-values">${totalPrice}</span></p>
 
                         <hr />
-                      <Link to='/success'>   <button id="checkout_btn" onclick={()=>confirmOrder}  className="btn btn-primary btn-block">Place Order</button></Link>
+                      <Link to='/success'>   <button id="checkout_btn" onclick={confirmOrder}  className="btn btn-primary btn-block">Place Order</button></Link>
                     </div>
                 </div>
 			
