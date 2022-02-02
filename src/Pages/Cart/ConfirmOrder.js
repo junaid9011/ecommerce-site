@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { clearAllErrors, createOrder} from '../../Redux/Actions/orderAction';
+import { createOrder} from '../../Redux/Actions/orderAction';
 
 const ConfirmOrder = () => {
     const dispatch=useDispatch();
@@ -9,7 +9,7 @@ const ConfirmOrder = () => {
     const {user}=useSelector(state=>(state.user));
     
     const {cartItems,shippingInfo}=useSelector(state=>state.cart);
-    const {error}=useSelector(state=>(state.order))
+    // const {error}=useSelector(state=>(state.order))
     //calculating sub total
     const itemPrice=cartItems.reduce((acc,item)=>acc+item.price*item.quantity,0)
     const shippingPrice=10;

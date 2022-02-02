@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
     const {user}=useSelector(state=>state.user)
@@ -11,9 +12,9 @@ const Profile = () => {
                 <figure class='avatar avatar-profile'>
                     <img class="rounded-circle img-fluid" src='' alt='' />
                 </figure>
-                <a href="#" id="edit_profile" class="btn btn-primary btn-block my-5">
+                <Link to="#" id="edit_profile" class="btn btn-primary btn-block my-5">
                     Edit Profile
-                </a>
+                </Link>
             </div>
      
             <div class="col-12 col-md-5">
@@ -23,13 +24,13 @@ const Profile = () => {
                  <h4>Email Address</h4>
                  <p>{user.user.email}</p>
 
-                 <a href="#" class="btn btn-danger btn-block mt-5">
+                 <Link to="#" class="btn btn-danger btn-block mt-5">
                     My Orders
-                </a>
+                </Link>
 
-                <a href="#" class="btn btn-primary btn-block mt-3">
+                <Link to="#" class="btn btn-primary btn-block mt-3">
                     Change Password
-                </a>
+                </Link>
             </div>
         </div>
     </div>
