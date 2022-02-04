@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.18e1f280.css",
+    "main.js": "/static/js/main.bc44146e.js",
+    "static/js/787.b3a40fe8.chunk.js": "/static/js/787.b3a40fe8.chunk.js",
+    "static/media/tv.png": "/static/media/tv.2027d93c2010cf1f8d9b.png",
+    "static/media/headphone.png": "/static/media/headphone.977932808672e07d9138.png",
+    "static/media/xbox.png": "/static/media/xbox.f7ce21b8e0a39f7c6653.png",
+    "static/media/cards.png": "/static/media/cards.942a5891094842eda4f3.png",
+    "index.html": "/index.html",
+    "main.18e1f280.css.map": "/static/css/main.18e1f280.css.map",
+    "main.bc44146e.js.map": "/static/js/main.bc44146e.js.map",
+    "787.b3a40fe8.chunk.js.map": "/static/js/787.b3a40fe8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.18e1f280.css",
+    "static/js/main.bc44146e.js"
+  ]
+}

@@ -19,7 +19,7 @@ export const createOrder=(order)=> async(dispatch) => {
                 'Content-Type':'application/json'
             }
         }
-       const {data}=await axios.post('http://127.0.0.1:4000/api/v1/order/new',order,config);
+       const {data}=await axios.post('https://ecommerce-x5.herokuapp.com/api/v1/order/new',order,config);
 
         dispatch({
             type:CREATE_ORDER_SUCCESS,
@@ -40,12 +40,15 @@ export const myOrders=()=> async(dispatch) => {
             
         })
       
-       const {data}=await axios.get('http://127.0.0.1:4000/api/v1/orders/me');
+       const {data}=await axios.get('https://ecommerce-x5.herokuapp.com/api/v1/orders/me');
 
         dispatch({
             type:MY_ORDERS_SUCCESS,
             payload:data
         })
+
+
+
     }catch(error){
         dispatch({
             type: MY_ORDERS_FAIL,

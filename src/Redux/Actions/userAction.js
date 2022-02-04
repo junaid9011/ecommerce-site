@@ -29,7 +29,7 @@ export const login=(email,password)=>async(dispatch)=>{
                 'content-type':'application/json'
             }
         }
-        const {data}=await axios.post('http://127.0.0.1:4000/api/v1/login',{email,password},config,{withCredentials: true})
+        const {data}=await axios.post('https://ecommerce-x5.herokuapp.com/api/v1/login',{email,password},config,{withCredentials: true})
         // console.log(data)
         setCookie("token",data.token,7)
         // console.log(data.token)
@@ -57,7 +57,7 @@ export const register=(name,email,password)=>async(dispatch)=>{
                 'content-type':'application/json'
             }
         }
-        const {data}=await axios.post('http://127.0.0.1:4000/api/v1/register',{name,email,password},config,{withCredentials: true})
+        const {data}=await axios.post('https://ecommerce-x5.herokuapp.com/api/v1/register',{name,email,password},config,{withCredentials: true})
         setCookie("token",data.token,7)
         // console.log(data.token)
         dispatch({
@@ -81,7 +81,7 @@ export const loadUser=()=>async(dispatch)=>{
             type:LOAD_USER_REQUEST
         })
         
-        const {data}=await axios.get('http://127.0.0.1:4000/api/v1/me')
+        const {data}=await axios.get('https://ecommerce-x5.herokuapp.com/api/v1/me')
         
         dispatch({
             type:LOAD_USER_SUCCESS,
@@ -98,7 +98,7 @@ export const loadUser=()=>async(dispatch)=>{
 export const logOut=()=>async(dispatch)=>{
 
     try{ 
-        await axios.get('http://127.0.0.1:4000/api/v1/logout')
+        await axios.get('https://ecommerce-x5.herokuapp.com/api/v1/logout')
         
         dispatch({
             type:LOGOUT_USER_SUCCESS,
