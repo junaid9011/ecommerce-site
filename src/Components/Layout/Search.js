@@ -16,7 +16,7 @@ const Search = ({history}) => {
             history.push('/');
         }
         
-        e.preventDefault();
+        // e.preventDefault();
 
     }
     return (
