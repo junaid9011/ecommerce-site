@@ -7,6 +7,7 @@ import { clearAllErrors, login,register } from '../../Redux/Actions/userAction';
 
 const Login = () => {
     const [newUser,setNewUser]=useState(false); // it is for check sign in or signup form nothing else
+    const [name,setName]=useState('')
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const dispatch=useDispatch()
@@ -14,7 +15,7 @@ const Login = () => {
     const alert=useAlert();
     const {isAuthenticatedUser,error}=useSelector(state=>state.user)
     //register
-    const [name,setName]=useState('')
+    
 
     //const {name,email,password}=user;
     // const[avater,setAvater]=useState('');
@@ -74,12 +75,12 @@ const Login = () => {
                 <input type="password" name="password"   className="form__input" placeholder=" " value={password} onChange={(e)=>setPassword(e.target.value)} required/>
                 <label htmlFor='' className="form__label">Password</label>
             </div>
-           {
+           {/* {
                newUser&& <div className="form__div">
                <input type="password"  name="confirm-password" className="form__input" placeholder=" "/>
                <label htmlFor='' className="form__label">Confirm Password</label>
            </div>
-           }
+           } */}
            
             <input type="submit" className="form__button" value={newUser?"Sign up":"Sign in"}/>
             <p className=" pt-4 text-center">{newUser?"Already have a Account?":"New Member?"} <span  onClick={()=>setNewUser(!newUser)} className="text-emerald-500 cursor-pointer ">{newUser?"Sign in":"Sign up"}</span></p>

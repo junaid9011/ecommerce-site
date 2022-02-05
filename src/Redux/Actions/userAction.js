@@ -57,8 +57,8 @@ export const register=(name,email,password)=>async(dispatch)=>{
                 'content-type':'application/json'
             }
         }
-        const {data}=await axios.post('https://ecommerce-x5.herokuapp.com/api/v1/register',{name,email,password},config,{withCredentials: true})
-        setCookie("token",data.token,7)
+        const {data}=await axios.post('https://ecommerce-x5.herokuapp.com/api/v1/register',{name,email,password},config)
+        // setCookie("token",data.token,7)
         // console.log(data.token)
         dispatch({
             type:REGISTER_SUCCESS,
