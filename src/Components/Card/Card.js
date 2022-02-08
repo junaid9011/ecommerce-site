@@ -39,9 +39,9 @@ export const Card = ({product}) => {
                 </button>
                 </Link>
 
-                <button className="size">
+                {/* <button className="size">
                 <span>SIZES</span>
-                </button>
+                </button> */}
 
                 {/* <button className="colors">
                 <span>

@@ -111,5 +111,8 @@
             padding:10px 0;
             font-size: medium;
         }
+        .counter{
+            display: none;
+        }
 
 }
