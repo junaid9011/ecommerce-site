@@ -16,7 +16,7 @@ const Cart = () => {
     }
     const decreaseQty=(id,quantity)=>{
         // const counter=Number(document.querySelector('.count').value);
-        if(quantity>0){
+        if(quantity>1){
             dispatch(addItemToCart(id,quantity-1))
         }
     }

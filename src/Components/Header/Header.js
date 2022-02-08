@@ -51,7 +51,7 @@ export const Header = () => {
                     <Link to={'/cart'}><button className="mt-2 text-white font-medium">
                        <div className="">
                        <FaShoppingCart className=" absolute top-3 text-2xl"/>
-                        <span className='hidden md:block absolute top-3 right-10 text-center rounded-xl text-black bg-white px-2 text-xl'>{counter?counter:"0"}</span>
+                        <span className='counter'>{counter?counter:"0"}</span>
                        </div>
                         </button></Link>
                     <h1 className="text-white text-base">Cart</h1>
