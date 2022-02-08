@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import {  useLocation, useNavigate } from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import {useDispatch,useSelector} from 'react-redux'
 import {useAlert} from 'react-alert'
 import './Authentication.css'
 import { clearAllErrors, login,register } from '../../Redux/Actions/userAction';
+import 'react-notifications/lib/notifications.css';
 
 const Login = () => {
     const [newUser,setNewUser]=useState(false); // it is for check sign in or signup form nothing else
@@ -30,7 +32,7 @@ const Login = () => {
         }
        else if(error){
             
-            alert.show('Login Failed');
+           
             dispatch(clearAllErrors(error))
         }
     },[dispatch,isAuthenticatedUser,navigate,alert,redirect,error])
@@ -39,10 +41,13 @@ const Login = () => {
             e.preventDefault();
             
             dispatch(register(name,email,password))
+            NotificationManager.success('Sign up Successfull','Success')
+            
         }
         else{
              e.preventDefault();
         dispatch(login(email,password))
+        NotificationManager.success('Sign in Successfull','Success')
         }
     }
     // const handleAvater=(e)=>{
@@ -82,13 +87,14 @@ const Login = () => {
            </div>
            } */}
            
-            <input type="submit" className="form__button" value={newUser?"Sign up":"Sign in"}/>
+            <input type="submit"  className="form__button" value={newUser?"Sign up":"Sign in"}/>
             <p className=" pt-4 text-center">{newUser?"Already have a Account?":"New Member?"} <span  onClick={()=>setNewUser(!newUser)} className="text-emerald-500 cursor-pointer ">{newUser?"Sign in":"Sign up"}</span></p>
         </form>
         
            
         
      </div>
+     <NotificationContainer/>
      
     </div>
     );

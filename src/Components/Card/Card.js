@@ -1,14 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import {useDispatch} from 'react-redux'
 import { addItemToCart } from '../../Redux/Actions/cartAction';
+import 'react-notifications/lib/notifications.css';
 import './Card.scss'
 export const Card = ({product}) => {
    
     const dispatch=useDispatch();
-  
+    const addToCart=()=>{
+        dispatch(addItemToCart(product._id,1));
+        NotificationManager.success('Item Added to Cart', 'Success');
+        // 
+
+    }
+    
     return (
         <main role="main">
+            
         <div className="product">
             <figure>
             <img src={product.img} alt="" className="product-image"/>
@@ -30,7 +39,7 @@ export const Card = ({product}) => {
             </div>
 
             <div className="product-sidebar">
-                <button onClick={()=>{dispatch(addItemToCart(product._id,1))}} className="buy">
+                <button onClick={addToCart} className="buy">
                 <span>ADD TO CART</span>
                 </button>
                 <Link to={`product/${product._id}`} >
@@ -52,6 +61,7 @@ export const Card = ({product}) => {
                 </button> */}
             </div>
             </div>
+            <NotificationContainer/>
             </main>
     
     );

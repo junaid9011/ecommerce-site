@@ -1,3 +1,8 @@
+.counter{
+    border:1px solid;
+    width: 150px;
+    border-radius: 10px;
+}
 .btn{
    
     /* background-color: darkgreen; */
@@ -6,8 +11,8 @@
 }
 .input{
     width: 50px;
-    border:1px solid;
-    border-radius: 5px;
+   
+    /* border-radius: 5px; */
     height: 44px;
     text-align: center;
 }

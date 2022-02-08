@@ -2,12 +2,14 @@
 import React, { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import Metadata from '../../Components/Layout/Metadata';
 import { addItemToCart } from '../../Redux/Actions/cartAction';
 import { getProductDetails } from '../../Redux/Actions/productAction';
 import './ProductDetails.css'
+import 'react-notifications/lib/notifications.css';
 const ProductDetails = () => {
-    const [quantity,setQuantity]=useState(1)
+    const [quantity,setQuantity]=useState(1);
     const {id}=useParams();
     const dispatch=useDispatch();
     const {findSingleProduct}=useSelector(state=>state.productDetails.productDetails);
@@ -23,10 +25,14 @@ const ProductDetails = () => {
     }
     const handleDerement =()=>{
         const counter=Number(document.querySelector('.input').value);
-        setQuantity(counter-1);
+        if(counter>1){
+            setQuantity(counter-1);
+        }
     }
+    
     const addToCart=()=>{
-        dispatch(addItemToCart(id,quantity))
+        dispatch(addItemToCart(id,quantity));
+        NotificationManager.success("Item added to Cart",'Success')
     }
 
     return (
@@ -47,7 +53,7 @@ const ProductDetails = () => {
                     {/* counter */}
                     <div className=" counter mb-4">
                     <button onClick={handleDerement} className="btn" >-</button>
-                     <input type="number" className="input" name="" value={quantity} id="" readOnly />
+                     <input type="number" className="input" name="counter" value={quantity} id="" readOnly  />
                      <button onClick={handleIncrement} className="btn" >+</button>
                    
                     </div>
@@ -64,6 +70,7 @@ const ProductDetails = () => {
                
             </div>
             {/* <h2 className="mt-4">Relative Products</h2> */}
+            <NotificationContainer/>
         </div>
     );
 };

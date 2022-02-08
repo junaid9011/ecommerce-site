@@ -1,0 +1,12 @@
+.counters{
+    border:1px solid;
+    width: 100px;
+    border-radius: 10px;
+    /* display: flex; */
+}
+.order{
+    border: 1px solid lightgrey;
+    padding: 20px;
+    border-radius: 20px;
+
+}
