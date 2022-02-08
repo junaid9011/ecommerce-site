@@ -1,13 +1,13 @@
 # A MERN STACK E-commerce site
-
-# Used Tech:
-# Frontend:
-React JS, Redux, React router dom ,
+### Visit [Live Site](https://ecommerce-x5.netlify.app)
+## Used Tech:
+## Frontend:
+- React JS, Redux, React router dom ,
 Material
 UI/icons, CSS, Font Awesome Icon
-# Backend:
-Express JS, Node JS, MongoDB, Environment variable
-# Features
+## Backend:
+- Express JS, Node JS, MongoDB, Environment variable
+## Features
 - It's a Good looking Responsive E commerce site.
 - Designing are made by Swiper JS, Bootstrap, CSS3
 - Authentication made by own Authentication System, and used JWT token for verifying users.
