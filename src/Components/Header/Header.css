@@ -55,7 +55,7 @@
     display: flex;
     justify-content:space-between;
 }
-.counter{
+.counter-state{
     position:absolute;
     top:5px;
     right: 55px;
@@ -111,7 +111,7 @@
             padding:10px 0;
             font-size: medium;
         }
-        .counter{
+        .counter-state{
             display: none;
         }
 

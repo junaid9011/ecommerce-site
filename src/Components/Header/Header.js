@@ -51,7 +51,7 @@ export const Header = () => {
                     <Link to={'/cart'}><button className="mt-2 text-white font-medium">
                        <div className="">
                        <FaShoppingCart className=" absolute top-3 text-2xl"/>
-                        <span className='counter'>{counter?counter:"0"}</span>
+                        <span className='counter-state'>{counter?counter:"0"}</span>
                        </div>
                         </button></Link>
                     <h1 className="text-white text-base">Cart</h1>
