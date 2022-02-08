@@ -12,14 +12,16 @@ import Search from '../Layout/Search'
 export const Header = () => {
     const dispatch=useDispatch();
     const {user}=useSelector(state=>state?.user);
+    const {cartItems}=useSelector(state=>state.cart)
+    const counter=cartItems.length;
     const name=user?.user?.name.split(' ')[0]
     const userLogout=()=>{
         dispatch(logOut());
     }
     const history=createBrowserHistory()
     return (
-        <div className="">
-            <div className="bg-emerald-600 nav-container  ">
+        <div className="nav">
+            <div className="bg-emerald-600 nav-container">
                 <div className=" py-4 text-center">
                     <Link to={'/'}><h1 className="mt-2 text-white font-medium">ECommerce</h1></Link>
                     
@@ -46,7 +48,12 @@ export const Header = () => {
                     </div>
                     
                     <div className=" ml-2 md:mr-16">
-                    <Link to={'/cart'}><button className="mt-2 text-white  font-medium"><FaShoppingCart className=" absolute top-3 text-2xl"/></button></Link>
+                    <Link to={'/cart'}><button className="mt-2 text-white font-medium">
+                       <div className="">
+                       <FaShoppingCart className=" absolute top-3 text-2xl"/>
+                        <span className='hidden md:block absolute top-3 right-10 text-center rounded-xl text-black bg-white px-2 text-xl'>{counter?counter:"0"}</span>
+                       </div>
+                        </button></Link>
                     <h1 className="text-white text-base">Cart</h1>
                     </div>
                 </div>

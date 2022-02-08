@@ -8,7 +8,7 @@ import { saveShippingInfo } from '../../Redux/Actions/cartAction';
 const Shipping = () => {
     const {shippingInfo}=useSelector(state=>(state.cart));
     const {user}=useSelector(state=>(state.user.user));
-    console.log(user)
+    // console.log(user)
     const [address,setAddress]=useState(shippingInfo?.address?shippingInfo.address:'');
     const [city,setCity]=useState(shippingInfo?.city?shippingInfo.city:'');
     const [state,setState]=useState(shippingInfo?.state?shippingInfo.state:'');
@@ -22,7 +22,7 @@ const Shipping = () => {
     }
     
     return (
-        <div className=" containers ">
+        <div className=" mt-16 containers ">
 
     <form onSubmit={handleSubmit} action="">
 

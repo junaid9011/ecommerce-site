@@ -20,7 +20,7 @@ const ConfirmOrder = () => {
         const order={
             orderItems: cartItems,
             shippingInfo: shippingInfo,
-            user: user,
+            user: user.user,
             itemPrice,
             shippingPrice,
             tax,
@@ -28,24 +28,25 @@ const ConfirmOrder = () => {
         }
         // console.log(order)
         const confirmOrder=()=>{
+            console.log('order created')
                     dispatch(createOrder(order));
-                    window.localStorage.removeItem('cartItems');
+                   
                 }
         
         
     return (
-        <div className="container container-fluid">
+        <div className="container mt-16 container-fluid">
         
         <div className="row d-flex justify-content-between">
             <div className="col-12 col-lg-8 mt-5 order-confirm">
 
-                <h4 className="mb-3">Shipping Info</h4>
+                <h4 className="mb-3 pb-4 font-medium text-3xl">Shipping Info</h4>
                 <p><b>Name:</b> {user&&user.user.name}</p>
                 <p><b>email:</b> {user&& user.user.email}</p>
                 <p className="mb-4"><b>Address:</b> {`${shippingInfo.address},${shippingInfo.city}`}</p>
                 
                 <hr />
-                <h4 className="mt-4">Your Cart Items:</h4>
+                <h4 className="mt-4 pb-4 font-medium text-3xl ">Your Cart Items:</h4>
                 {cartItems.map(item=>(
                    <div key={item.id} className="">
                        <hr />
@@ -76,7 +77,7 @@ const ConfirmOrder = () => {
 			
 			<div className="col-12 col-lg-3 my-4">
                     <div id="order_summary">
-                        <h4>Order Summary</h4>
+                        <h4 className='pb-4 font-medium text-3xl'>Order Summary</h4>
                         <hr />
                         <p>Subtotal:  <span className="order-summary-values">${itemPrice}</span></p>
                         <p>Shipping: <span className="order-summary-values">${shippingPrice}</span></p>
@@ -87,7 +88,7 @@ const ConfirmOrder = () => {
                         <p>Total: <span className="order-summary-values">${totalPrice}</span></p>
 
                         <hr />
-                      <Link to='/success'>   <button id="checkout_btn" onclick={confirmOrder}  className="btn btn-primary btn-block">Place Order</button></Link>
+                      <Link to='/success'>   <button id="checkout_btn" onClick={confirmOrder}  className="btn btn-primary btn-block">Place Order</button></Link>
                     </div>
                 </div>
 			

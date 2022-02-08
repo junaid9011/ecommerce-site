@@ -13,7 +13,7 @@ export const addItemToCart=(id,quantity)=>async(dispatch,getState)=>{
             id:data.findSingleProduct._id,
             name:data.findSingleProduct.name,
             price:data.findSingleProduct.price,
-            image:data.findSingleProduct.images[0].url,
+            image:data.findSingleProduct.img,
             // product:data.findSingleProduct,
             quantity
         }

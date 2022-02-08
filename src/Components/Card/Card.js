@@ -1,47 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import './Card.css'
+import {useDispatch} from 'react-redux'
+import { addItemToCart } from '../../Redux/Actions/cartAction';
+import './Card.scss'
 export const Card = ({product}) => {
    
-    
+    const dispatch=useDispatch();
   
     return (
-        <div className="text-center block ">
+        <main role="main">
+        <div className="product">
+            <figure>
+            <img src={product.img} alt="" className="product-image"/>
+                </figure>
 
-            <h1 className="text-center text-4xl text-medium   text-emerald-600 mt-10">Products</h1>   
-            <div className=" cards">
-            {
-                product.map(product => (
+            <div className="product-description">
 
-                    <div key={product._id} class="card">
-                        <div class="card-image mx-auto w-4/5">
-                            <img src={product.images[0].url} alt="" />
-                        </div>
-                            <div class="card-text">
-                                
-                                <h2>{product.name}</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor</p>
-                            </div>
-                            <div class="card-stats bg-emerald-600">
-                                <div class="stat">
-                                    
-                                    <div class="type">${product.price}</div>
-                                </div>
-                                <Link to={`product/${product._id}`} >
-                                <button class=" btns  w-full h-full text-white  ">
-                                 <div className="my-4">Show Details</div>
-                                </button>
-                                </Link>
-                                
-                        </div>
-                    </div>
-          
-                ))
-            }
+                <div className="info">
+                <h3>{product.name.split(' ',5)}</h3>
+                {/* <p>
+                    Lorem Ipsum is simply dummy
+                    printing and typesetting industry
+                </p> */}
+                </div>
+
+                <div className="price">
+                {product.price}
+                </div>
             </div>
-            
-        </div>
+
+            <div className="product-sidebar">
+                <button onClick={()=>{dispatch(addItemToCart(product._id,1))}} className="buy">
+                <span>ADD TO CART</span>
+                </button>
+                <Link to={`product/${product._id}`} >
+                <button className="info">
+                <span>MORE INFO</span>
+                </button>
+                </Link>
+
+                <button className="size">
+                <span>SIZES</span>
+                </button>
+
+                {/* <button className="colors">
+                <span>
+                    <a href="" className="color black"></a>
+                    <a href="" className="color white"></a>
+                    <a href="" className="color red"></a>
+                </span>
+                </button> */}
+            </div>
+            </div>
+            </main>
     
     );
 };

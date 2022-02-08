@@ -4,7 +4,7 @@ import { RiFacebookCircleFill,RiTwitterFill,RiInstagramFill } from "react-icons/
 import './Footer.css'
 const Footer = () => {
     return (
-         <div className="">
+         <div className=" ">
              <footer className='footer'>
   	 <div className="containerss">
   	 	<div className="row">

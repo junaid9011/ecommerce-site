@@ -27,7 +27,7 @@ const Cart = () => {
         navigate('/login?redirect=shipping')
     }
     return (
-        <div className="container container-fluid">
+        <div className="container mt-32 container-fluid">
         <h2 className="mt-5 font-medium text-4xl">Your Cart: <b>{cartItems.length}</b></h2>
         
         <div className="row d-flex justify-content-between">
@@ -52,10 +52,10 @@ const Cart = () => {
 
                         <div className="col-4 col-lg-3 mt-4 mt-lg-0">
                             <div className="stockCounter d-inline">
-                                <span onClick={()=>decreaseQty(item.id,item.quantity)} className="btn btn-danger minus  ">-</span>
-                                <input  type="number" className="form-control count inline py-2" value={item.quantity} readOnly />
+                                <button onClick={()=>decreaseQty(item.id,item.quantity)} className=" minus focus:outline-none text-2xl  p-2  ">-</button>
+                                <input  type="number" className="form-control count inline p-2" value={item.quantity} readOnly />
 
-								<span onClick={()=>increaseQty(item.id,item.quantity)} className="btn btn-primary plus">+</span>
+								<button onClick={()=>increaseQty(item.id,item.quantity)} className="plus text-2xl focus:outline-none p-2">+</button>
                             </div>
                         </div>
 

@@ -31,16 +31,16 @@ const ProductDetails = () => {
 
     return (
         <div>
-            <div className="">
+            <div className="mt-32">
                 <Metadata title={findSingleProduct?.name}/>
             <h1 className="text-5xl  text-emerald-500 font-sans font-bold text-center my-10 ">Product Details</h1>
             </div>
             <div className=" grid grid-cols-1 justify-between md:grid-cols-2 md:justify-between sm:border">
                 <div className="">
-                    <img src={findSingleProduct?.images[0].url} className="w-1/2 m-auto " alt="" />
+                    <img src={findSingleProduct?.img} className="w-1/2 m-auto " alt="" />
                 </div>
                 <div className=" md:border-r-2 ml-10">
-                    <h1 className="text-6xl font-bold uppercase text-emerald-500">{findSingleProduct?.name}</h1>
+                    <h1 className="text-3xl   text-emerald-500">{findSingleProduct?.name}</h1>
                     <p className="text-2xl font-semibold text-gray-500 mt-2 mb-4">{findSingleProduct?.category}</p>
                     
                     <h3 className="text-green-600 font-semibold text-3xl mb-9">${findSingleProduct?.price}</h3>
@@ -52,10 +52,10 @@ const ProductDetails = () => {
                    
                     </div>
                     {/* description button */}
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit qui laboriosam voluptatum ullam atque dolorem animi assumenda, sint magni nesciunt suscipit ab harum corporis, quibusdam ad hic dolorum nam unde.</p>
+                    <p><span className='text-emerald-500 mr-2'> In Stock:</span><span className=' font-medium'>{findSingleProduct?.stock?findSingleProduct?.stock:'Out of Stock'}</span> </p>
                     <div className="m-10">
                     
-                    <button className=" border border-emerald-500  leading-10  w-3/12 rounded-xl text-xl text-center font-medium  shadow-xl text-emerald-500 mr-10
+                    <button className=" border border-emerald-500  leading-10 w-full md:w-3/12 rounded-xl text-xl text-center font-medium  shadow-xl text-emerald-500 mr-10
                      hover:bg-emerald-500 hover:text-white hover:border" onClick={addToCart}>Add to Cart</button>
                     </div>
                     
@@ -63,7 +63,7 @@ const ProductDetails = () => {
                
                
             </div>
-            <h2 className="mt-4">Relative Products</h2>
+            {/* <h2 className="mt-4">Relative Products</h2> */}
         </div>
     );
 };

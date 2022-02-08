@@ -15,14 +15,14 @@ import "./Slider.css";
 
 // import Swiper core and required modules
 import SwiperCore, {
-    Navigation,Autoplay,Pagination
+    Autoplay,Pagination
 } from 'swiper';
 // import { Link, useParams } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getProductDetails } from '../../Redux/Actions/productAction';
 
 // install Swiper modules
-SwiperCore.use([Autoplay,Pagination,Navigation]);
+SwiperCore.use([Autoplay,Pagination]);
 
 
 export const Slider = () => {
@@ -37,11 +37,11 @@ export const Slider = () => {
                     "delay": 2500,
                     "disableOnInteraction": false}} 
                     pagination={{"clickable": true}}
-                    navigation={true}
+                    // navigation={true}
                     className="mySwiper">
                     <SwiperSlide>
-                        <div className=" flex justify-between  ">
-                           <div className="slide-text mx-auto my-auto hidden md:block">
+                        <div className=" slide-1 mt-16 flex justify-between  ">
+                           <div className="slide-text text-emerald-600 text-6xl mx-auto my-auto hidden md:block">
                            <h1 className="">48" LED TV </h1>
                            
                            <h1 className="">It's Supper LED TV</h1>
@@ -51,8 +51,8 @@ export const Slider = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                    <div className=" flex justify-between  ">
-                           <div className="slide-text mx-auto my-auto hidden md:block">
+                    <div className=" flex mt-16 justify-between  ">
+                           <div className="slide-text text-emerald-600 text-6xl mx-auto my-auto hidden md:block">
                            <h1 className="">X-Box </h1>
                            
                            <h1 className="">It's a gamimg xbox.</h1>
@@ -62,8 +62,8 @@ export const Slider = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                    <div className=" flex justify-between  ">
-                           <div className="slide-text mx-auto my-auto hidden md:block">
+                    <div className=" flex mt-16 justify-between  ">
+                           <div className="slide-text text-emerald-600 text-6xl mx-auto my-auto hidden md:block">
                            <h1 className="">Beats 365 Headphone</h1>
                            
                            <h1 className="">It's a High bass headphone</h1>

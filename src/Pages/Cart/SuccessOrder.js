@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SuccessOrder = () => {
     // 
+    window.localStorage.removeItem('cartItems');
     return (
         <div className="container container-fluid">
         <div className="row justify-content-center">

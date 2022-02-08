@@ -8,15 +8,15 @@ import {
         PRODUCT_DETAILS_FAIL,
         CLEAR_ERRORS} from '../../Redux/Constants/ProductConstant'
 
-export const getProducts =(keyword={})=> async(dispatch) => {
-    console.log(keyword)
+export const getProducts =(keyword={},currentPage)=> async(dispatch) => {
+    // console.log(keyword,currentPage)
     try{
         dispatch({
             type: ALL_PRODUCTS_REQUEST,
 
         })
         if(keyword.keyword){
-            const {data}=await axios.get(`https://ecommerce-x5.herokuapp.com/api/v1/products?keyword=${keyword.keyword}`)
+            const {data}=await axios.get(`https://ecommerce-x5.herokuapp.com/api/v1/products?keyword=${keyword.keyword}&&page=${currentPage}`)
             dispatch({
                 type:ALL_PRODUCTS_SUCCESS,
                 payload:data
@@ -25,7 +25,7 @@ export const getProducts =(keyword={})=> async(dispatch) => {
             
         }
         else{
-            const {data}=await axios.get('https://ecommerce-x5.herokuapp.com/api/v1/products')
+            const {data}=await axios.get(`https://ecommerce-x5.herokuapp.com/api/v1/products?page=${currentPage}`)
             dispatch({
                 type:ALL_PRODUCTS_SUCCESS,
                 payload:data
@@ -47,7 +47,7 @@ export const getProductDetails =(id)=> async(dispatch) => {
     try{
         dispatch({
             type: PRODUCT_DETAILS_REQUEST,
-
+  
         })
         const {data}=await axios.get(`https://ecommerce-x5.herokuapp.com/api/v1/product/${id}`)
        
