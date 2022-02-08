@@ -66,7 +66,7 @@ const Cart = () => {
 								<button onClick={()=>increaseQty(item.id,item.quantity)} className="plus text-2xl focus:outline-none p-2">+</button>
                             </div>
                         </div>
-                        <div className="ml-16">
+                        <div className="ml-8">
                             <p className="text-emerald-500  font-bold text-2xl">${item.price*item.quantity}</p>
                         </div>
                         <div className="ml-2">
