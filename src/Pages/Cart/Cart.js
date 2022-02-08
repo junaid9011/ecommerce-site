@@ -69,7 +69,7 @@ const Cart = () => {
                         <div className="ml-16">
                             <p className="text-emerald-500  font-bold text-2xl">${item.price*item.quantity}</p>
                         </div>
-                        <div className="ml-8">
+                        <div className="ml-2">
                             <i id="delete_cart_item" className="fa fa-trash btn btn-danger" onClick={()=>removeItem(item.id)}></i>
                         </div>
 
