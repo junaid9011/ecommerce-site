@@ -35,7 +35,7 @@ const Home = () => {
             {
                 loading?<Loader/>:
                 <div className="">
-                    <Metadata title={"Ecommerce Site"}/>
+                    <Metadata title={"Dream Store"}/>
                     <Slider />
                     <h1 className="text-center text-4xl text-medium   text-emerald-600 mt-10">Products</h1>  
                     <div className="product-container">
