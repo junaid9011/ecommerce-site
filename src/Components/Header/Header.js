@@ -23,7 +23,7 @@ export const Header = () => {
         <div className="nav">
             <div className="bg-emerald-600 nav-container">
                 <div className=" py-4 text-center">
-                    <Link to={'/'}><h1 className="mt-2 text-white font-medium">ECommerce</h1></Link>
+                    <Link to={'/'}><h1 className="mt-2 text-white font-medium">Dream Store</h1></Link>
                     
                 </div>
                 <div className=" ">
