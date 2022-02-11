@@ -27,7 +27,7 @@ const Orders = () => {
         </tbody>
         <tbody>
           <tr>
-            <td>1</td>
+            <td>2</td>
             <td>AcerAspireE15E5-575G-57D4</td>
             <td >$579.99</td>
             <td className='text-emerald-500'>delivered</td>
