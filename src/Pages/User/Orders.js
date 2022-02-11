@@ -5,7 +5,7 @@ const Orders = () => {
     // const dispatch=useDispatch();
     // const {}=useSelector(state=>console.log(state))
     return (
-        <div>
+        <div className='mt-32'>
         <h1 className='text-4xl my-6 py-4 text-emerald-600' >Orders</h1>
         <Table striped bordered hover size="sm">
         <thead>
