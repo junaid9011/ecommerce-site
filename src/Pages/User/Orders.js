@@ -12,16 +12,26 @@ const Orders = () => {
           <tr>
             <th>#</th>
             <th>Product Name</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th>price</th>
+            <th>status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
-            <td>Heaphone</td>
-            <td className='text-emerald-600'>Delivered</td>
-            <td >@x5</td>
+            <td>ManfrottoMBLF-WN-BPcamera</td>
+            <td >$170</td>
+            <td className='text-red-500'>processing</td>
+            
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>AcerAspireE15E5-575G-57D4</td>
+            <td >$579.99</td>
+            <td className='text-emerald-500'>delivered</td>
+            
           </tr>
         </tbody>
       </Table>
