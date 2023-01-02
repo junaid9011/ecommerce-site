@@ -4,7 +4,7 @@ import { ADD_TO_CART,
     SAVE_SHIPPING_INFO
  } from "../Constants/CartConstants";
 export const addItemToCart=(id,quantity)=>async(dispatch,getState)=>{
-    const {data}= await axios.get(`http://localhost:4000/api/v1/product/${id}`);
+    const {data}= await axios.get(`https://dreamstore.onrender.com/api/v1/product/${id}`);
     // console.log(data)
     dispatch({
         type:ADD_TO_CART,
@@ -21,7 +21,7 @@ export const addItemToCart=(id,quantity)=>async(dispatch,getState)=>{
     localStorage.setItem('cartItems',JSON.stringify(getState().cart.cartItems))
 }
 export const removeFromCart=(id,quantity)=>async(dispatch,getState)=>{
-    const {data}= await axios.get(`http://localhost:4000/api/v1/product/${id}`);
+    const {data}= await axios.get(`https://dreamstore.onrender.com/api/v1/product/${id}`);
     console.log(data)
     dispatch({
         type:REMOVE_FROM_CART,

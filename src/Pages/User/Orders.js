@@ -13,7 +13,7 @@ const Orders = () => {
     }, [dispatch,token])
     
     const orders=useSelector(state=>(state?.myOrders?.order?.myOrder))
-    console.log(orders)
+    // console.log(orders)
     return (
         <div className='mt-32'>
         <h1 className='text-4xl my-6 py-4 text-emerald-600' >Orders</h1>
