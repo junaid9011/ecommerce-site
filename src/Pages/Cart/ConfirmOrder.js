@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createOrder} from '../../Redux/Actions/orderAction';
+import { getCookie } from '../../Redux/Cookie';
 
 const ConfirmOrder = () => {
     const dispatch=useDispatch();
@@ -15,8 +16,9 @@ const ConfirmOrder = () => {
     const shippingPrice=10;
     const tax=Number((0.05*itemPrice).toFixed(2))
     const totalPrice=(itemPrice+shippingPrice+tax)
-    
-    
+    const history=useNavigate();
+    // console.log(getCookie('token'))
+    const token=getCookie('token');
         const order={
             orderItems: cartItems,
             shippingInfo: shippingInfo,
@@ -28,9 +30,9 @@ const ConfirmOrder = () => {
         }
         // console.log(order)
         const confirmOrder=()=>{
-            console.log('order created')
-                    dispatch(createOrder(order));
-                   
+            // console.log('order created')
+                     dispatch(createOrder(order,token));
+                    history.push('/success')
                 }
         
         
@@ -88,7 +90,7 @@ const ConfirmOrder = () => {
                         <p>Total: <span className="order-summary-values">${totalPrice}</span></p>
 
                         <hr />
-                      <Link to='/success'>   <button id="checkout_btn" onClick={confirmOrder}  className="btn btn-primary btn-block">Place Order</button></Link>
+                        <button id="checkout_btn" onClick={confirmOrder}  className="btn btn-primary btn-block">Place Order</button>
                     </div>
                 </div>
 			

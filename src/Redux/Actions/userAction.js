@@ -18,7 +18,7 @@ import { setCookie } from '../Cookie.js'
 
 // login
 
-export const login=(email,password)=>async(dispatch)=>{
+export const login=(email,password,token)=>async(dispatch)=>{
     try{
 
         dispatch({
@@ -26,10 +26,12 @@ export const login=(email,password)=>async(dispatch)=>{
         })
         const config={
             headers:{
-                'content-type':'application/json'
+                "Access-Control-Allow-Origin": "*",
+                "Content-type": "Application/json",
+                "Authorization": `Bearer ${token}`,
             }
         }
-        const {data}=await axios.post('https://ecommerce-x5.herokuapp.com/api/v1/login',{email,password},config,{withCredentials: true})
+        const {data}=await axios.post('https://dreamstore.onrender.com/api/v1/login',{email,password},config,{withCredentials: true})
         // console.log(data)
         setCookie("token",data.token,7)
         // console.log(data.token)
@@ -45,7 +47,7 @@ export const login=(email,password)=>async(dispatch)=>{
     }
 }
 //register user
-export const register=(name,email,password)=>async(dispatch)=>{
+export const register=(name,email,password,token)=>async(dispatch)=>{
     // console.log(name,email,password)
     try{
 
@@ -54,11 +56,13 @@ export const register=(name,email,password)=>async(dispatch)=>{
         })
         const config={
             headers:{
-                'content-type':'application/json'
+                "Access-Control-Allow-Origin": "*",
+                "Content-type": "Application/json",
+                "Authorization": `Bearer ${token}`,
             }
         }
-        const {data}=await axios.post('https://ecommerce-x5.herokuapp.com/api/v1/register',{name,email,password},config)
-        // setCookie("token",data.token,7)
+        const {data}=await axios.post('https://dreamstore.onrender.com/api/v1/register',{name,email,password},config)
+        setCookie("token",data.token,7)
         // console.log(data.token)
         dispatch({
             type:REGISTER_SUCCESS,
@@ -81,7 +85,7 @@ export const loadUser=()=>async(dispatch)=>{
             type:LOAD_USER_REQUEST
         })
         
-        const {data}=await axios.get('https://ecommerce-x5.herokuapp.com/api/v1/me')
+        const {data}=await axios.get('https://dreamstore.onrender.com/api/v1/me')
         
         dispatch({
             type:LOAD_USER_SUCCESS,
@@ -98,7 +102,7 @@ export const loadUser=()=>async(dispatch)=>{
 export const logOut=()=>async(dispatch)=>{
 
     try{ 
-        await axios.get('https://ecommerce-x5.herokuapp.com/api/v1/logout')
+        await axios.get('https://dreamstore.onrender.com/api/v1/logout')
         
         dispatch({
             type:LOGOUT_USER_SUCCESS,

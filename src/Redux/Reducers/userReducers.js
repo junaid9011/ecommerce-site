@@ -12,7 +12,12 @@ import {
     LOGOUT_USER_FAIL,
     CLEAR_ERRORS
 } from '../Constants/userConstant.js'
-export const userReducer=(state={user:{}},action)=>{
+import { getCookie } from '../Cookie.js'
+export const userReducer=(state={user:{
+    token:getCookie('token'),
+    isAuthenticatedUser:getCookie('token'),
+    loading:false
+}},action)=>{
     switch(action.type){
         case LOGIN_REQUEST:
             case REGISTER_REQUEST:

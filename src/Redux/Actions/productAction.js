@@ -16,7 +16,7 @@ export const getProducts =(keyword={},currentPage)=> async(dispatch) => {
 
         })
         if(keyword.keyword){
-            const {data}=await axios.get(`https://ecommerce-x5.herokuapp.com/api/v1/products?keyword=${keyword.keyword}&&page=${currentPage}`)
+            const {data}=await axios.get(`https://dreamstore.onrender.com/api/v1/products?keyword=${keyword.keyword}&&page=${currentPage}`)
             dispatch({
                 type:ALL_PRODUCTS_SUCCESS,
                 payload:data
@@ -25,7 +25,7 @@ export const getProducts =(keyword={},currentPage)=> async(dispatch) => {
             
         }
         else{
-            const {data}=await axios.get(`https://ecommerce-x5.herokuapp.com/api/v1/products?page=${currentPage}`)
+            const {data}=await axios.get(`https://dreamstore.onrender.com/api/v1/products?page=${currentPage}`)
             dispatch({
                 type:ALL_PRODUCTS_SUCCESS,
                 payload:data
@@ -49,7 +49,7 @@ export const getProductDetails =(id)=> async(dispatch) => {
             type: PRODUCT_DETAILS_REQUEST,
   
         })
-        const {data}=await axios.get(`https://ecommerce-x5.herokuapp.com/api/v1/product/${id}`)
+        const {data}=await axios.get(`https://dreamstore.onrender.com/api/v1/product/${id}`)
        
 
         dispatch({

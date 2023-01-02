@@ -6,6 +6,7 @@ import {useAlert} from 'react-alert'
 import './Authentication.css'
 import { clearAllErrors, login,register } from '../../Redux/Actions/userAction';
 import 'react-notifications/lib/notifications.css';
+import { getCookie } from '../../Redux/Cookie';
 
 const Login = () => {
     const [newUser,setNewUser]=useState(false); // it is for check sign in or signup form nothing else
@@ -18,7 +19,7 @@ const Login = () => {
     const {isAuthenticatedUser,error}=useSelector(state=>state.user)
     //register
     
-
+    const token=getCookie('token')
     //const {name,email,password}=user;
     // const[avater,setAvater]=useState('');
     // const[avaterPreview,setAvaterPreview]=useState('');
@@ -40,13 +41,13 @@ const Login = () => {
         if(newUser){
             e.preventDefault();
             
-            dispatch(register(name,email,password))
+            dispatch(register(name,email,password,token))
             NotificationManager.success('Sign up Successfull','Success')
             
         }
         else{
              e.preventDefault();
-        dispatch(login(email,password))
+        dispatch(login(email,password,token))
         NotificationManager.success('Sign in Successfull','Success')
         }
     }

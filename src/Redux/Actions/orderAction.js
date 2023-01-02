@@ -8,7 +8,7 @@ import {CREATE_ORDER_REQUEST,
     CLEAR_ERRORS
 } from '../Constants/orderConstants'
 
-export const createOrder=(order)=> async(dispatch) => {
+export const createOrder=(order,token)=> async(dispatch) => {
     try{
         dispatch({
             type:CREATE_ORDER_REQUEST
@@ -16,10 +16,12 @@ export const createOrder=(order)=> async(dispatch) => {
         })
         const config={
             headers:{
-                'Content-Type':'application/json'
+                "Access-Control-Allow-Origin": "*",
+                "Content-type": "Application/json",
+                "Authorization": `Bearer ${token}`,
             }
         }
-       const {data}=await axios.post('https://ecommerce-x5.herokuapp.com/api/v1/order/new',order,config);
+       const {data}=await axios.post('https://dreamstore.onrender.com/api/v1/order/new',order,config);
 
         dispatch({
             type:CREATE_ORDER_SUCCESS,
@@ -40,7 +42,7 @@ export const myOrders=()=> async(dispatch) => {
             
         })
       
-       const {data}=await axios.get('https://ecommerce-x5.herokuapp.com/api/v1/orders/me');
+       const {data}=await axios.get('https://dreamstore.onrender.com/api/v1/orders/me');
 
         dispatch({
             type:MY_ORDERS_SUCCESS,

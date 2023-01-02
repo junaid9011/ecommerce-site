@@ -12,6 +12,7 @@ import Search from '../Layout/Search'
 export const Header = () => {
     const dispatch=useDispatch();
     const {user}=useSelector(state=>state?.user);
+    console.log(user)
     const {cartItems}=useSelector(state=>state.cart)
     const counter=cartItems.length;
     const name=user?.user?.name.split(' ')[0]
