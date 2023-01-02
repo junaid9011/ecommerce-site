@@ -7,15 +7,23 @@ import { FaUserAlt,FaShoppingCart } from "react-icons/fa";
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logOut } from '../../Redux/Actions/userAction';
+import { loadUser, logOut } from '../../Redux/Actions/userAction';
 import Search from '../Layout/Search'
+import { getCookie } from '../../Redux/Cookie';
+import { useEffect } from 'react';
 export const Header = () => {
     const dispatch=useDispatch();
     const {user}=useSelector(state=>state?.user);
-    console.log(user)
+    const token=getCookie('token');
+    
+    useEffect(() => {
+        dispatch(loadUser(token));
+    }, [dispatch,token])
+    
+    // console.log(user)
     const {cartItems}=useSelector(state=>state.cart)
     const counter=cartItems.length;
-    const name=user?.user?.name.split(' ')[0]
+    const name=user?.LoggenInUser?.name.split(' ')[0]
     const userLogout=()=>{
         dispatch(logOut());
     }
@@ -34,7 +42,7 @@ export const Header = () => {
                 <div className="py-4 user-cart ">
                     <div className=" md:ml-16 user">
                     <button className="mt-2 text-white  font-medium"><Link to={'/login'}><FaUserAlt className=" absolute top-3 ml-1 text-2xl"/></Link>
-                        {(user?.user)&&<div className="bg-emerald-600 px-8   absolute py-4 drop-down ">
+                        {(user?.LoggenInUser)&&<div className="bg-emerald-600 px-8   absolute py-4 drop-down ">
                             <ul >
                                 <Link to="/profile" className="drop-down-menu text-xl">Profile</Link>
                                 <br />
@@ -45,7 +53,7 @@ export const Header = () => {
                         </div>}
                     </button>
                     
-                     <h1 className="text-white text-base">{(user?.user?.name)?name:"user"}</h1>
+                     <h1 className="text-white text-base">{(user?.LoggenInUser?.name)?name:"user"}</h1>
                     </div>
                     
                     <div className=" ml-2 md:mr-16">

@@ -1,4 +1,5 @@
 import React from 'react';
+// import { useEffect } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { createOrder} from '../../Redux/Actions/orderAction';
@@ -28,13 +29,14 @@ const ConfirmOrder = () => {
             tax,
             totalPrice
         }
-        // console.log(order)
+        
         const confirmOrder=()=>{
             // console.log('order created')
                      dispatch(createOrder(order,token));
-                    history.push('/success')
+                     history('/success');
+                        
                 }
-        
+    
         
     return (
         <div className="container mt-16 container-fluid">

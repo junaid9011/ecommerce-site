@@ -1,9 +1,19 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Table } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux';
+import { myOrders } from '../../Redux/Actions/orderAction';
+import { getCookie } from '../../Redux/Cookie';
 
 const Orders = () => {
-    // const dispatch=useDispatch();
-    // const {}=useSelector(state=>console.log(state))
+  const token=getCookie('token');
+    const dispatch=useDispatch();
+    useEffect(() => {
+     dispatch(myOrders(token))
+    }, [dispatch,token])
+    
+    const orders=useSelector(state=>(state?.myOrders?.order?.myOrder))
+    console.log(orders)
     return (
         <div className='mt-32'>
         <h1 className='text-4xl my-6 py-4 text-emerald-600' >Orders</h1>
@@ -11,21 +21,21 @@ const Orders = () => {
         <thead>
           <tr>
             <th>#</th>
-            <th>Product Name</th>
+            {/* <th>Product Name</th> */}
             <th>price</th>
             <th>status</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>ManfrottoMBLF-WN-BPcamera</td>
-            <td >$170</td>
-            <td className='text-red-500'>processing</td>
+         { orders?.map((item,index)=><tr>
+            <td>{index+1}</td>
+            {/* <td>{item.name}</td> */}
+            <td >${item.totalPrice}</td>
+            <td className='text-red-500'>{item.orderStatus}</td>
             
-          </tr>
+          </tr>)}
         </tbody>
-        <tbody>
+        {/* <tbody>
           <tr>
             <td>2</td>
             <td>AcerAspireE15E5-575G-57D4</td>
@@ -33,7 +43,7 @@ const Orders = () => {
             <td className='text-emerald-500'>delivered</td>
             
           </tr>
-        </tbody>
+        </tbody> */}
       </Table>
         </div>
     );

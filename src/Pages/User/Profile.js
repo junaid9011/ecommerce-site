@@ -1,9 +1,14 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { loadUser } from '../../Redux/Actions/userAction';
+import { getCookie } from '../../Redux/Cookie';
 
 const Profile = () => {
-    const {user}=useSelector(state=>state.user)
+    const {user}=useSelector(state=>state.user);
+    const token=getCookie('token');
+    const dispatch=useDispatch();
+    dispatch(loadUser(token));
     return (
         <div class="container container-fluid">
         <h2 class="mt-5 ml-5">My Profile</h2>

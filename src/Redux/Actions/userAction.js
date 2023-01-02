@@ -31,7 +31,7 @@ export const login=(email,password,token)=>async(dispatch)=>{
                 "Authorization": `Bearer ${token}`,
             }
         }
-        const {data}=await axios.post('https://dreamstore.onrender.com/api/v1/login',{email,password},config,{withCredentials: true})
+        const {data}=await axios.post('http://localhost:4000/api/v1/login',{email,password},config,{withCredentials: true})
         // console.log(data)
         setCookie("token",data.token,7)
         // console.log(data.token)
@@ -61,7 +61,7 @@ export const register=(name,email,password,token)=>async(dispatch)=>{
                 "Authorization": `Bearer ${token}`,
             }
         }
-        const {data}=await axios.post('https://dreamstore.onrender.com/api/v1/register',{name,email,password},config)
+        const {data}=await axios.post('http://localhost:4000/api/v1/register',{name,email,password},config)
         setCookie("token",data.token,7)
         // console.log(data.token)
         dispatch({
@@ -77,15 +77,22 @@ export const register=(name,email,password,token)=>async(dispatch)=>{
 }
 
 //load user
-export const loadUser=()=>async(dispatch)=>{
+export const loadUser=(token)=>async(dispatch)=>{
 
     try{
 
         dispatch({
             type:LOAD_USER_REQUEST
         })
-        
-        const {data}=await axios.get('https://dreamstore.onrender.com/api/v1/me')
+        const config={
+            headers:{
+                "Access-Control-Allow-Origin": "*",
+                "Content-type": "Application/json",
+                "Authorization": `Bearer ${token}`,
+            }
+
+        }
+        const {data}=await axios.get('http://localhost:4000/api/v1/me',config)
         
         dispatch({
             type:LOAD_USER_SUCCESS,
@@ -102,7 +109,7 @@ export const loadUser=()=>async(dispatch)=>{
 export const logOut=()=>async(dispatch)=>{
 
     try{ 
-        await axios.get('https://dreamstore.onrender.com/api/v1/logout')
+        await axios.get('http://localhost:4000/api/v1/logout')
         
         dispatch({
             type:LOGOUT_USER_SUCCESS,

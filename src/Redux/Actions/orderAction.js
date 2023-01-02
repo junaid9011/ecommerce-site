@@ -21,7 +21,7 @@ export const createOrder=(order,token)=> async(dispatch) => {
                 "Authorization": `Bearer ${token}`,
             }
         }
-       const {data}=await axios.post('https://dreamstore.onrender.com/api/v1/order/new',order,config);
+       const {data}=await axios.post('http://localhost:4000/api/v1/order/new',order,config);
 
         dispatch({
             type:CREATE_ORDER_SUCCESS,
@@ -35,14 +35,21 @@ export const createOrder=(order,token)=> async(dispatch) => {
     }
 }
 //MY ORDERS
-export const myOrders=()=> async(dispatch) => {
+export const myOrders=(token)=> async(dispatch) => {
     try{
         dispatch({
             type:MY_ORDERS_REQUEST
             
         })
-      
-       const {data}=await axios.get('https://dreamstore.onrender.com/api/v1/orders/me');
+        const config={
+            headers:{
+                "Access-Control-Allow-Origin": "*",
+                "Content-type": "Application/json",
+                "Authorization": `Bearer ${token}`,
+            }
+
+        }
+       const {data}=await axios.get('http://localhost:4000/api/v1/orders/me',config);
 
         dispatch({
             type:MY_ORDERS_SUCCESS,

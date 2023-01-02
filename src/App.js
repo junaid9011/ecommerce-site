@@ -13,13 +13,16 @@ import ConfirmOrder from './Pages/Cart/ConfirmOrder';
 import Profile from './Pages/User/Profile';
 import SuccessOrder from './Pages/Cart/SuccessOrder';
 import Orders from './Pages/User/Orders';
+import { getCookie } from './Redux/Cookie';
 
 
 function App() {
+  const token=getCookie('token');
+
   useEffect(()=>{
-    store.dispatch(loadUser());
+    store.dispatch(loadUser(token));
     // console.log(store.dispatch(loadUser()))
-  },[])
+  },[token])
   return (
     
     <div>
