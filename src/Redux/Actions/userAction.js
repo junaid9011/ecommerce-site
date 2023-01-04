@@ -92,7 +92,7 @@ export const loadUser=(token)=>async(dispatch)=>{
             }
 
         }
-        const {data}=await axios.get('https://dreamstore.onrender.com/api/v1/me',config)
+        const {data}=await axios.get('https://dreamstore.onrender.com/api/v1/me',config);
         
         dispatch({
             type:LOAD_USER_SUCCESS,

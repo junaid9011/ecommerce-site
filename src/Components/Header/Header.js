@@ -7,18 +7,17 @@ import { FaUserAlt,FaShoppingCart } from "react-icons/fa";
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadUser, logOut } from '../../Redux/Actions/userAction';
+import {  logOut } from '../../Redux/Actions/userAction';
 import Search from '../Layout/Search'
-import { getCookie } from '../../Redux/Cookie';
-import { useEffect } from 'react';
+
 export const Header = () => {
     const dispatch=useDispatch();
     const {user}=useSelector(state=>state?.user);
-    const token=getCookie('token');
+    // const token=getCookie('token');
     
-    useEffect(() => {
-        dispatch(loadUser(token));
-    }, [dispatch,token])
+    // useEffect(() => {
+    //     dispatch(loadUser(token));
+    // }, [dispatch,token])
     
     // console.log(user)
     const {cartItems}=useSelector(state=>state.cart)

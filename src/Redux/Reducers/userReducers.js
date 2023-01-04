@@ -12,10 +12,9 @@ import {
     LOGOUT_USER_FAIL,
     CLEAR_ERRORS
 } from '../Constants/userConstant.js'
-import { getCookie } from '../Cookie.js'
+// import { getCookie } from '../Cookie.js'
 export const userReducer=(state={user:{
-    token:getCookie('token'),
-    isAuthenticatedUser:getCookie('token'),
+    isAuthenticatedUser:true,
     loading:false
 }},action)=>{
     switch(action.type){
@@ -43,7 +42,6 @@ export const userReducer=(state={user:{
                 }
             case LOAD_USER_FAIL:
                 return {
-                    
                     loading:true,
                     isAuthenticatedUser:false,
                     user:null,
